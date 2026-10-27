@@ -1,0 +1,34 @@
+{"id":"q01","split":"dev","answerable":true,"question":"Which AI practices are banned outright?","gold_articles":[5],"key_facts":["subliminal","social behaviour","untargeted scraping","workplace"]}
+{"id":"q02","split":"dev","answerable":true,"question":"What does a provider have to put in place to manage the risks of a high-risk AI system?","gold_articles":[9],"key_facts":["risk management system","iterative process","foreseeable"]}
+{"id":"q03","split":"dev","answerable":true,"question":"What requirements apply to the data used to train a high-risk AI system?","gold_articles":[10],"key_facts":["training, validation and testing data sets","data governance","representative"]}
+{"id":"q04","split":"dev","answerable":true,"question":"Do high-risk AI systems have to keep logs of what they do?","gold_articles":[12],"key_facts":["automatic recording of events","logs"]}
+{"id":"q05","split":"dev","answerable":true,"question":"How long must the users of a high-risk AI system keep its logs?","gold_articles":[26],"key_facts":["six months","logs"]}
+{"id":"q06","split":"dev","answerable":true,"question":"When must people be told that they are talking to an AI system?","gold_articles":[50],"key_facts":["interact directly with natural persons","informed that they are interacting with an ai system"]}
+{"id":"q07","split":"dev","answerable":true,"question":"What are the maximum fines for using a prohibited AI practice?","gold_articles":[99],"key_facts":["35 000 000","total worldwide annual turnover"]}
+{"id":"q08","split":"dev","answerable":true,"question":"Are fines different for small and medium-sized enterprises?","gold_articles":[99],"key_facts":["whichever thereof is lower","start-ups"]}
+{"id":"q09","split":"dev","answerable":true,"question":"Who has to assess the impact on fundamental rights before putting a high-risk system into use?","gold_articles":[27],"key_facts":["bodies governed by public law","impact on fundamental rights"]}
+{"id":"q10","split":"dev","answerable":false,"question":"What is the capital of France?","gold_articles":[],"key_facts":[]}
+{"id":"q11","split":"dev","answerable":false,"question":"How many AI systems have been registered in the EU database so far?","gold_articles":[],"key_facts":[]}
+{"id":"q12","split":"dev","answerable":true,"question":"Which kinds of AI systems are outside the scope of the regulation?","gold_articles":[2],"key_facts":["military, defence or national security","scientific research and development"]}
+{"id":"q13","split":"test","answerable":true,"question":"What must providers of general-purpose AI models disclose about the data they trained on?","gold_articles":[53],"key_facts":["copyright","sufficiently detailed summary"]}
+{"id":"q14","split":"test","answerable":true,"question":"What extra duties do providers of the most powerful general-purpose AI models have?","gold_articles":[55],"key_facts":["systemic risk","adversarial testing"]}
+{"id":"q15","split":"test","answerable":true,"question":"Above what amount of training computation is a general-purpose AI model presumed to be high-impact?","gold_articles":[51],"key_facts":["floating point operations","systemic risk"]}
+{"id":"q16","split":"test","answerable":true,"question":"Within what time must a serious incident be reported?","gold_articles":[73],"key_facts":["15 days","serious incident"]}
+{"id":"q17","split":"test","answerable":true,"question":"Can a person ask for an explanation of a decision taken with the help of a high-risk AI system?","gold_articles":[86],"key_facts":["clear and meaningful explanations","decision-making procedure"]}
+{"id":"q18","split":"test","answerable":true,"question":"Where can someone complain if they think the regulation has been infringed?","gold_articles":[85],"key_facts":["market surveillance authority","complaint"]}
+{"id":"q19","split":"test","answerable":true,"question":"What do companies that use AI have to ensure about the AI knowledge of their staff?","gold_articles":[4],"key_facts":["sufficient level of ai literacy","staff"]}
+{"id":"q20","split":"test","answerable":true,"question":"From what date does the regulation apply?","gold_articles":[113],"key_facts":["2 august 2026","twentieth day"]}
+{"id":"q21","split":"test","answerable":true,"question":"What are AI regulatory sandboxes and who sets them up?","gold_articles":[57],"key_facts":["ai regulatory sandbox","competent authorities"]}
+{"id":"q22","split":"test","answerable":true,"question":"When does a distributor or importer become the provider of a high-risk system?","gold_articles":[25],"key_facts":["name or trademark","high-risk ai system"]}
+{"id":"q23","split":"test","answerable":true,"question":"What must a person overseeing a high-risk AI system be able to do?","gold_articles":[14],"key_facts":["human oversight","button"]}
+{"id":"q24","split":"test","answerable":true,"question":"What documentation has to exist before a high-risk AI system is placed on the market?","gold_articles":[11],"key_facts":["technical documentation","placed on the market or put into service"]}
+{"id":"q25","split":"test","answerable":true,"question":"Which AI systems are always high-risk because they profile people?","gold_articles":[6],"key_facts":["profiling of natural persons","annex iii"]}
+{"id":"q26","split":"test","answerable":true,"question":"What does the CE marking on a high-risk AI system have to look like?","gold_articles":[48],"key_facts":["visibly, legibly and indelibly","digital ce marking"]}
+{"id":"q27","split":"test","answerable":true,"question":"Who sits on the European Artificial Intelligence Board?","gold_articles":[65],"key_facts":["one representative per member state"]}
+{"id":"q28","split":"test","answerable":true,"question":"What fines can providers of general-purpose AI models face?","gold_articles":[101],"key_facts":["15 000 000","general-purpose ai model"]}
+{"id":"q29","split":"test","answerable":false,"question":"Which cloud providers are approved to host high-risk AI systems?","gold_articles":[],"key_facts":[]}
+{"id":"q30","split":"test","answerable":false,"question":"Who is the current director of the European AI Office?","gold_articles":[],"key_facts":[]}
+{"id":"q31","split":"test","answerable":false,"question":"How much does it cost to obtain the CE marking for an AI system?","gold_articles":[],"key_facts":[]}
+{"id":"q32","split":"test","answerable":true,"question":"What must the quality management system of a provider of high-risk AI contain?","gold_articles":[17],"key_facts":["quality management system","written policies, procedures and instructions"]}
+{"id":"q33","split":"test","answerable":false,"question":"Does the AI Act set a speed limit for self-driving cars?","gold_articles":[],"key_facts":[]}
+{"id":"q34","split":"test","answerable":false,"question":"Which Austrian court decides disputes about the AI Act?","gold_articles":[],"key_facts":[]}
