@@ -20,8 +20,7 @@ local LLM, a REST API, tests, and (planned) a container and a quantitative evalu
 | Answer generation with a local LLM (Ollama) and citation check | done, tested |
 | REST API (FastAPI): `/health`, `/ask` | done, tested |
 | Docker image (API + embedding model; Ollama on the host) | done, tested manually |
-| Evaluation | not started; only informal notes in `eval/notes.md` |
-
+| Evaluation (34 questions, retrieval metrics, judged answers, error analysis) | done, see [Evaluation](#evaluation) |
 ## How it works
 
 1. **Parse** (`src/rag/parse.py`): extracts the 113 articles from the EUR-Lex HTML.
