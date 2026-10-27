@@ -82,3 +82,14 @@ Timing: 20-45 s per question (single runs, noisy machine).
   three configurations were compared on the same 10 questions: not distinguishable from noise.
 - Not measured here: smaller chunks give the language model less text in its top 4
   (about 400 words at 100 words/chunk vs about 1000 at 250). That needs the answer evaluation.
+
+## Answer evaluation, dev split (prompt frozen, no query prefix, 250-word chunks, k=4)
+
+- Cited at least one article 10/10; cited a gold article 8/10; gold article retrieved 9/10;
+  cited an article not provided 0/10; refused although answerable 0/10;
+  unanswerable questions correctly refused 2/2 (both easy ones). Median 12 s per answer.
+- q05: retrieval had Art. 26 (rank 3), the model cited Art. 19 (providers): GENERATION error.
+- q07: gold Art. 99 not retrieved, the model cited Art. 100 and 101: RETRIEVAL error.
+- The "not provided" check did not see either error: it only detects articles that were never
+  given to the model.
+- Timing: 20-45 s noted earlier were command-line runs that reload the embedding model each time.
