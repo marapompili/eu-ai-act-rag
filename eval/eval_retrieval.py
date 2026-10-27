@@ -24,6 +24,7 @@ def wilson(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
 ap = argparse.ArgumentParser()
 ap.add_argument("--split", default="dev", choices=["dev", "test", "all"])
 ap.add_argument("--prefix", default="none", choices=["none", "bge"])
+ap.add_argument("--index-dir", default="data/index")
 args = ap.parse_args()
 
 questions = [json.loads(l) for l in Path("eval/questions.jsonl").read_text().splitlines()]
@@ -31,7 +32,9 @@ if args.split != "all":
     questions = [q for q in questions if q["split"] == args.split]
 
 retriever = Retriever.load(
-    make_encoder(load_model()), query_prefix=BGE_PREFIX if args.prefix == "bge" else ""
+    make_encoder(load_model()),
+    index_dir=Path(args.index_dir),
+    query_prefix=BGE_PREFIX if args.prefix == "bge" else "",
 )
 
 rows, top1_ans, top1_unans = [], [], []
@@ -47,7 +50,7 @@ for q in questions:
     rows.append((q, rank, [h.chunk.article for h in hits[:4]]))
 
 n = len(rows)
-print(f"split={args.split} prefix={args.prefix}: {n} answerable questions\n")
+print(f"split={args.split} prefix={args.prefix} index={args.index_dir}: {n} answerable questions\n")
 for q, rank, top in rows:
     flag = "" if rank and rank <= 4 else "   <-- check"
     print(f'{q["id"]}  gold={q["gold_articles"]}  rank={rank}  top4 articles={top}{flag}')
@@ -67,7 +70,7 @@ if top1_unans:
     )
 
 Path("eval/results").mkdir(exist_ok=True)
-Path(f"eval/results/retrieval_{args.split}_{args.prefix}.json").write_text(
+Path(f"eval/results/retrieval_{args.split}_{args.prefix}_{Path(args.index_dir).name}.json").write_text(
     json.dumps({"split": args.split, "prefix": args.prefix, "n": n, "mrr": mrr,
                 "ranks": {q["id"]: r for q, r, _ in rows}}, indent=1)
 )

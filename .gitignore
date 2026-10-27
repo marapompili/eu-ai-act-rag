@@ -222,3 +222,4 @@ __marimo__/
 # Project data (reproducible, not versioned)
 data/raw/
 data/index/
+data/index_*/

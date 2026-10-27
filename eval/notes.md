@@ -55,3 +55,30 @@ Timing: 20-45 s per question (single runs, noisy machine).
   not a labelling problem. The word "users" is not a term of the regulation.
 - Query prefix (BGE instruction): recommended by the model authors for retrieval. Decision rule
   fixed before running: keep it if hit@4 does not drop and MRR does not get worse.
+
+## Experiment 1: BGE query prefix (dev split, 10 answerable questions)
+
+- Without prefix: hit@1 6/10, hit@3 8/10, hit@4 9/10, hit@10 9/10, MRR 0.708.
+- With prefix:    hit@1 5/10, hit@3 9/10, hit@4 9/10, hit@10 10/10, MRR 0.678.
+- Changes: q02 4->3, q03 1->2, q07 not found->9; the other 7 questions unchanged.
+- Decision (rule fixed beforehand: keep if hit@4 does not drop and MRR does not get worse):
+  MRR got worse, so the default stays WITHOUT prefix. The difference is one question moving
+  by one position: not distinguishable from noise with 10 questions.
+- Plan: report both configurations on the test split, once, at the end.
+
+## Experiment 2: chunk size (dev split, 10 answerable questions, no query prefix)
+
+| max words | chunks | hit@1 | hit@4 | hit@10 | MRR |
+|---|---|---|---|---|---|
+| 100 | 578 | 7/10 | 9/10 | 10/10 | 0.787 |
+| 150 | 398 | 7/10 | 8/10 | 10/10 | 0.765 |
+| 250 | 245 | 6/10 | 9/10 | 9/10 | 0.708 |
+
+- 400 words was not tried: at 250 words the longest chunk was already 415 tokens, and the
+  embedding model's limit is 512, so longer chunks would be silently truncated.
+- Decision rule fixed beforehand: change size only if hit@4 gains at least 2 of 10 questions
+  and MRR does not drop. It is not met (9, 8, 9), so 250 words stays.
+- MRR rises as chunks get smaller, but the confidence intervals overlap almost completely and
+  three configurations were compared on the same 10 questions: not distinguishable from noise.
+- Not measured here: smaller chunks give the language model less text in its top 4
+  (about 400 words at 100 words/chunk vs about 1000 at 250). That needs the answer evaluation.
