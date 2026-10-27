@@ -45,3 +45,13 @@ Timing: 20-45 s per question (single runs, noisy machine).
 - Score threshold on retrieval to say "I don't know" when the best score is low.
 - Query instruction prefix for the BGE model.
 - Compare chunk sizes (150 / 250 / 400 words).
+## Retrieval evaluation, dev split (10 answerable questions)
+
+- q07 (fines for prohibited practices): gold Art. 99 not in top 10; Art. 5 took 5 of the 10 slots.
+  Hypothesis: the words "prohibited AI practice" match the title of Art. 5. Also several chunks of
+  the same article crowd out other articles.
+- q05 (log retention for "users"): kept gold = [26]. Checked the text: Art. 19 addresses providers,
+  Art. 26(6) addresses deployers. The system ranked Art. 19 first: a real error (wrong actor),
+  not a labelling problem. The word "users" is not a term of the regulation.
+- Query prefix (BGE instruction): recommended by the model authors for retrieval. Decision rule
+  fixed before running: keep it if hit@4 does not drop and MRR does not get worse.

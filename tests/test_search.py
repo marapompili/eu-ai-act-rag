@@ -47,3 +47,14 @@ def test_build_and_load_roundtrip(tmp_path):
     loaded = Retriever.load(fake_encode, index_dir=tmp_path)
     assert loaded.chunks == CHUNKS
     assert loaded.search("social scoring", k=1)[0].chunk.article == 5
+
+def test_query_prefix_is_applied_to_the_question():
+    seen = []
+
+    def spy(texts):
+        seen.extend(texts)
+        return fake_encode(texts)
+
+    r = Retriever(CHUNKS, fake_encode([c.text for c in CHUNKS]), spy, query_prefix="PREFIX: ")
+    r.search("administrative fines", k=1)
+    assert seen == ["PREFIX: administrative fines"]
