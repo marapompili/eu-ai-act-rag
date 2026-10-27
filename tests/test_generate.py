@@ -56,3 +56,24 @@ def test_refusal_is_not_flagged_as_uncited():
 
 def test_citation_with_paragraph_number_is_recognised():
     assert extract_citations("A [Art. 99(4)] and [Art. 99(3)]. B [Art. 5]") == [5, 99]
+
+def test_ollama_url_comes_from_environment(monkeypatch):
+    from rag.generate import ask_ollama
+
+    seen = {}
+
+    class FakeResponse:
+        def raise_for_status(self):
+            pass
+
+        def json(self):
+            return {"message": {"content": "ok"}}
+
+    def fake_post(url, **kwargs):
+        seen["url"] = url
+        return FakeResponse()
+
+    monkeypatch.setattr("rag.generate.httpx.post", fake_post)
+    monkeypatch.setenv("OLLAMA_URL", "http://example:1234")
+    assert ask_ollama([]) == "ok"
+    assert seen["url"] == "http://example:1234/api/chat"

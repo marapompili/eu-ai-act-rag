@@ -1,3 +1,4 @@
+import os
 import re
 import sys
 from dataclasses import dataclass
@@ -32,9 +33,10 @@ def build_messages(question: str, hits: list[Hit]) -> list[dict]:
 def ask_ollama(
     messages: list[dict],
     model: str = DEFAULT_MODEL,
-    url: str = OLLAMA_URL,
+    url: str | None = None,
     timeout: float = 180.0,
 ) -> str:
+    url = url or os.environ.get("OLLAMA_URL", OLLAMA_URL)
     response = httpx.post(
         f"{url}/api/chat",
         json={
