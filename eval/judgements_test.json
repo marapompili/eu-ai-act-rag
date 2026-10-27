@@ -1,0 +1,155 @@
+[
+ {
+  "id": "q13",
+  "split": "test",
+  "config": "k=4, no prefix",
+  "judgement": "correct",
+  "error_type": null,
+  "verification": "in a sample of 8 'correct' answers (at least 4 checked by M.P., ids not recorded)",
+  "note": ""
+ },
+ {
+  "id": "q14",
+  "split": "test",
+  "config": "k=4, no prefix",
+  "judgement": "wrong",
+  "error_type": "retrieval_miss",
+  "verification": "checked by M.P. against the text (doubtful case)",
+  "note": "Art. 55 not in the top 4 (rank none without prefix, 9 with); the model refused: a safe failure, nothing invented"
+ },
+ {
+  "id": "q15",
+  "split": "test",
+  "config": "k=4, no prefix",
+  "judgement": "correct",
+  "error_type": null,
+  "verification": "in a sample of 8 'correct' answers (at least 4 checked by M.P., ids not recorded)",
+  "note": ""
+ },
+ {
+  "id": "q16",
+  "split": "test",
+  "config": "k=4, no prefix",
+  "judgement": "partial",
+  "error_type": "wrong_citations",
+  "verification": "checked by M.P. against the text (doubtful case)",
+  "note": "15 days is right, but cited Art. 2, 3 and 9, never given to the model; other deadlines missing"
+ },
+ {
+  "id": "q17",
+  "split": "test",
+  "config": "k=4, no prefix",
+  "judgement": "correct",
+  "error_type": null,
+  "verification": "in a sample of 8 'correct' answers (at least 4 checked by M.P., ids not recorded)",
+  "note": ""
+ },
+ {
+  "id": "q18",
+  "split": "test",
+  "config": "k=4, no prefix",
+  "judgement": "correct",
+  "error_type": null,
+  "verification": "in a sample of 8 'correct' answers (at least 4 checked by M.P., ids not recorded)",
+  "note": "brief"
+ },
+ {
+  "id": "q19",
+  "split": "test",
+  "config": "k=4, no prefix",
+  "judgement": "correct",
+  "error_type": null,
+  "verification": "in a sample of 8 'correct' answers (at least 4 checked by M.P., ids not recorded)",
+  "note": ""
+ },
+ {
+  "id": "q20",
+  "split": "test",
+  "config": "k=4, no prefix",
+  "judgement": "correct",
+  "error_type": null,
+  "verification": "checked by M.P. against the text (doubtful case)",
+  "note": "correct for the ORIGINAL text; the act has been amended since"
+ },
+ {
+  "id": "q21",
+  "split": "test",
+  "config": "k=4, no prefix",
+  "judgement": "correct",
+  "error_type": null,
+  "verification": "checked by M.P. against the text (doubtful case)",
+  "note": "content right; cited Art. 3(55) instead of the gold Art. 57"
+ },
+ {
+  "id": "q22",
+  "split": "test",
+  "config": "k=4, no prefix",
+  "judgement": "partial",
+  "error_type": "incomplete_list",
+  "verification": "checked by M.P. against the text (doubtful case)",
+  "note": "only the name/trademark case"
+ },
+ {
+  "id": "q23",
+  "split": "test",
+  "config": "k=4, no prefix",
+  "judgement": "partial",
+  "error_type": "incomplete_list",
+  "verification": "checked by M.P. against the text (doubtful case)",
+  "note": "several oversight abilities missing"
+ },
+ {
+  "id": "q24",
+  "split": "test",
+  "config": "k=4, no prefix",
+  "judgement": "correct",
+  "error_type": null,
+  "verification": "in a sample of 8 'correct' answers (at least 4 checked by M.P., ids not recorded)",
+  "note": ""
+ },
+ {
+  "id": "q25",
+  "split": "test",
+  "config": "k=4, no prefix",
+  "judgement": "correct",
+  "error_type": null,
+  "verification": "checked by M.P. against the text (doubtful case)",
+  "note": "content right; paragraph number cited may be off"
+ },
+ {
+  "id": "q26",
+  "split": "test",
+  "config": "k=4, no prefix",
+  "judgement": "correct",
+  "error_type": null,
+  "verification": "checked by M.P. against the text (doubtful case)",
+  "note": "digital CE marking not mentioned"
+ },
+ {
+  "id": "q27",
+  "split": "test",
+  "config": "k=4, no prefix",
+  "judgement": "correct",
+  "error_type": null,
+  "verification": "in a sample of 8 'correct' answers (at least 4 checked by M.P., ids not recorded)",
+  "note": ""
+ },
+ {
+  "id": "q28",
+  "split": "test",
+  "config": "k=4, no prefix",
+  "judgement": "correct",
+  "error_type": null,
+  "verification": "in a sample of 8 'correct' answers (at least 4 checked by M.P., ids not recorded)",
+  "note": ""
+ },
+ {
+  "id": "q32",
+  "split": "test",
+  "config": "k=4, no prefix",
+  "judgement": "partial",
+  "error_type": "incomplete_list",
+  "verification": "checked by M.P. against the text (doubtful case)",
+  "note": "5 aspects listed, all right; the article lists more"
+ }
+]

@@ -144,3 +144,22 @@ Timing: 20-45 s per question (single runs, noisy machine).
   the only one that does. A system answer citing another valid article would still count as a miss
   in the "cited a gold article" check (see q05 in the dev split, where the cited article was
   addressed to a different actor).
+
+## Test split: results (configuration fixed in advance: k=4, no query prefix, 250-word chunks)
+
+Retrieval, 17 answerable questions: hit@1 14/17, hit@4 16/17, hit@10 16/17, MRR 0.863 (BGE prefix as
+secondary: hit@10 17/17, MRR 0.879; the only difference is q14, rank 9 instead of none, still outside
+the top 4). Unanswerable: 5/5 refused correctly, including the plausible-but-absent ones.
+
+Answers, judged by me against the text: 12 correct, 4 partial (q16, q22, q23, q32), 1 wrong (q14).
+- q14: retrieval miss; the model refused instead of inventing (safe failure).
+- q22, q23, q32: incomplete lists again (same pattern as dev q01, q12): the model summarises part of a
+  list without saying it is partial.
+- q16: right figure, wrong citations (Art. 2, 3, 9 were never given to the model). First real case
+  caught by the "cited but not provided" check.
+- Automatic "cited a gold article" 14/17 vs my judgement: it is wrong in both directions
+  (q21 and q25 are right but do not match the label/paragraph; q16 has the right figure and wrong citations).
+- Limits of the judgement: rubric (correct = answers what is asked, even briefly; partial = a list or
+  several elements were asked and relevant ones are missing) written down after the dev judgements,
+  which were made by intuition. The "correct" answers were checked on a sample (at least 4 of 8, ids
+  not recorded), the 9 doubtful ones in full.
