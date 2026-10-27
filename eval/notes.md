@@ -93,3 +93,15 @@ Timing: 20-45 s per question (single runs, noisy machine).
 - The "not provided" check did not see either error: it only detects articles that were never
   given to the model.
 - Timing: 20-45 s noted earlier were command-line runs that reload the embedding model each time.
+
+## Judgement of the dev answers (checked against the text), 10 answerable questions
+
+- correct 2 (q04, q06), partial 6 (q01, q02, q03, q05, q09, q12), wrong 2 (q07, q08).
+  Unanswerable: 2/2 refused correctly (both easy ones).
+- The automatic check "cited a gold article" said 8/10. It overestimates, in both directions:
+  q08 passes it with an invented detail (says "50% of the maximum"; Art. 99(6) says the lower of
+  percentage and amount), q05 fails it with a correct number (cited Art. 19, providers,
+  instead of Art. 26, deployers).
+- Error types: incomplete list (q01, q12), circular answer (q03), wrong actor (q05),
+  retrieval miss (q07), invented detail (q08), partial without recorded detail (q02, q09).
+- Hypothesis, not tested yet: incomplete lists come from only 4 chunks reaching the model.

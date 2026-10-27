@@ -1,0 +1,86 @@
+[
+ {
+  "id": "q01",
+  "judgement": "partial",
+  "error_type": "incomplete_list",
+  "verified": true,
+  "note": "3 of 8 prohibited practices listed, all correct"
+ },
+ {
+  "id": "q02",
+  "judgement": "partial",
+  "error_type": "incomplete_unspecified",
+  "verified": true,
+  "note": "checked by M.P. against Art. 9: partial; what is missing was not recorded"
+ },
+ {
+  "id": "q03",
+  "judgement": "partial",
+  "error_type": "circular_answer",
+  "verified": true,
+  "note": "criteria are in Art. 10(3); the answer does not state them"
+ },
+ {
+  "id": "q04",
+  "judgement": "correct",
+  "error_type": null,
+  "verified": true,
+  "note": "checked by M.P. against Art. 12: correct"
+ },
+ {
+  "id": "q05",
+  "judgement": "partial",
+  "error_type": "wrong_article_actor",
+  "verified": true,
+  "note": "six months is right; cited Art. 19 (providers) instead of Art. 26 (deployers)"
+ },
+ {
+  "id": "q06",
+  "judgement": "correct",
+  "error_type": null,
+  "verified": true,
+  "note": "checked by M.P. against Art. 50: correct"
+ },
+ {
+  "id": "q07",
+  "judgement": "wrong",
+  "error_type": "retrieval_miss",
+  "verified": true,
+  "note": "gold Art. 99(3) not retrieved; amounts from Art. 100/101"
+ },
+ {
+  "id": "q08",
+  "judgement": "wrong",
+  "error_type": "invented_detail",
+  "verified": true,
+  "note": "says 50% of the maximum fine; Art. 99(6) says the lower of percentage and amount"
+ },
+ {
+  "id": "q09",
+  "judgement": "partial",
+  "error_type": "incomplete_unspecified",
+  "verified": true,
+  "note": "checked by M.P. against Art. 27: partial; what is missing was not recorded"
+ },
+ {
+  "id": "q10",
+  "judgement": "correct",
+  "error_type": null,
+  "verified": true,
+  "note": "correct refusal"
+ },
+ {
+  "id": "q11",
+  "judgement": "correct",
+  "error_type": null,
+  "verified": true,
+  "note": "correct refusal"
+ },
+ {
+  "id": "q12",
+  "judgement": "partial",
+  "error_type": "incomplete_list",
+  "verified": true,
+  "note": "military/defence/national security and scientific research exclusions not mentioned"
+ }
+]
