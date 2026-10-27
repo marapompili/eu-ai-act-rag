@@ -120,3 +120,17 @@ Timing: 20-45 s per question (single runs, noisy machine).
   k=8 will be reported as a secondary configuration on the test split.
 - Reading: more context gives more complete answers, but the 3B model more often drops the
   citation format or refuses. Hypothesis, not tested: the instructions weigh less in a longer prompt.
+
+## Test-split protocol (written BEFORE running the test split)
+
+- Main configuration: k=4, no query prefix, 250-word chunks, prompt as in src/rag/generate.py
+  at this commit. These are the numbers to quote.
+- Secondary configurations, reported next to it and labelled as such: k=8; retrieval with BGE prefix.
+- Retrieval: hit@1/3/4/10, MRR, 95% Wilson intervals. Answers: my judgement (correct / partial /
+  wrong) against the regulation text, with Wilson intervals; refusals on the unanswerable
+  questions; time per answer.
+- After seeing any test result, I do not change prompt, code, parameters or questions.
+  Label corrections (gold articles) are allowed only BEFORE the run, with a note here.
+- Provenance of the questions: drafted with the help of an LLM (Claude); gold articles checked
+  automatically (key phrases found in the article). Manual check of the test labels: see the
+  note below, written before the run.
