@@ -134,3 +134,13 @@ Timing: 20-45 s per question (single runs, noisy machine).
 - Provenance of the questions: drafted with the help of an LLM (Claude); gold articles checked
   automatically (key phrases found in the article). Manual check of the test labels: see the
   note below, written before the run.
+
+## Manual check of the test labels (done BEFORE running the test split)
+
+- I (M.P.) went through the 17 answerable and the 5 unanswerable test questions with
+  eval/show_gold.py and the regulation text. I found no wrong gold article and no unanswerable
+  question that the text actually answers. No label was changed.
+- Limit of this check: I verified that the listed article answers the question, not that it is
+  the only one that does. A system answer citing another valid article would still count as a miss
+  in the "cited a gold article" check (see q05 in the dev split, where the cited article was
+  addressed to a different actor).
