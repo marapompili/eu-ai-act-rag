@@ -19,7 +19,7 @@ local LLM, a REST API, tests, and (planned) a container and a quantitative evalu
 | Embeddings + cosine-similarity retrieval | done, tested |
 | Answer generation with a local LLM (Ollama) and citation check | done, tested |
 | REST API (FastAPI): `/health`, `/ask` | done, tested |
-| Docker container | not started |
+| Docker image (API + embedding model; Ollama on the host) | done, tested manually |
 | Evaluation (test questions, metrics, error analysis) | not started; only informal notes in `eval/notes.md` |
 
 ## How it works
@@ -42,7 +42,7 @@ components and run in about a second without Ollama or the embedding model.
 
 ## Setup
 
-Requirements: Python 3.12+, [Ollama](https://ollama.com), about 5 GB of free disk space.
+Requirements: Python 3.13 (the version used here), [Ollama](https://ollama.com), about 5 GB of free disk space.
 Developed and tested on macOS (Apple silicon, 8 GB RAM).
 
 ```bash
@@ -77,6 +77,28 @@ curl -s -X POST localhost:8000/ask -H "Content-Type: application/json" \
 Interactive documentation is at http://127.0.0.1:8000/docs. Invalid requests get a 422;
 if Ollama is not running, `/ask` returns a 503.
 
+Run it in Docker (the image contains the API and the embedding model; Ollama stays on the host,
+because a 3B model inside a VM does not fit comfortably in 8 GB of RAM). Build the index on the host
+first (`python -m rag.index`, see above) and make sure Ollama is running. Tested with
+[Colima](https://github.com/abiosoft/colima) on macOS:
+
+```bash
+brew install colima docker
+colima start --cpu 2 --memory 3 --disk 30 --vm-type vz
+docker build -t eu-ai-act-rag .
+docker run --rm -p 8000:8000 \
+  -v "$PWD/data/index:/app/data/index:ro" \
+  -e OLLAMA_URL=http://host.docker.internal:11434 \
+  eu-ai-act-rag
+```
+
+The index is mounted read-only; the Ollama address comes from the `OLLAMA_URL` environment
+variable. Stop the VM with `colima stop` when you are done, to free its RAM.
+
+Image size: the first version was 9.8 GB because the default PyTorch wheel pulls about 4 GB of
+CUDA libraries that are useless without an NVIDIA GPU. Installing the CPU-only wheel first brought
+the image to 2.1 GB (disk usage as reported by `docker images`).
+
 Run the tests:
 
 ```bash
@@ -106,12 +128,18 @@ These are things observed while building the project, not generic disclaimers.
 - **Original text only.** The regulation has been amended since publication; this project
   uses the original Official Journal text of 12.7.2024 and does not include later changes.
 - **Speed.** About 20 to 45 seconds per answer on an 8 GB MacBook (single runs, noisy).
+- **Docker setup is only tested with Colima on one machine.** Docker Desktop was not tried. The
+  container needs Ollama running on the host and an index built beforehand; it does not
+  contain the language model.
+- **Not a production service.** No authentication, no load testing, and each answer takes
+  20 to 45 seconds on this hardware.
 - **English only.**
 
 ## Project layout
 
 ```
 src/rag/       parse, chunk, index, search, generate, api
+Dockerfile     image with the API and the embedding model
 tests/         pytest tests (fake encoder and fake LLM, no model needed)
 eval/          working notes on errors; evaluation will go here
 data/          SOURCES.md is versioned; raw/ and index/ are generated locally
