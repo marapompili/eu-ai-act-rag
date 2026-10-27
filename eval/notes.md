@@ -105,3 +105,18 @@ Timing: 20-45 s per question (single runs, noisy machine).
 - Error types: incomplete list (q01, q12), circular answer (q03), wrong actor (q05),
   retrieval miss (q07), invented detail (q08), partial without recorded detail (q02, q09).
 - Hypothesis, not tested yet: incomplete lists come from only 4 chunks reaching the model.
+
+## Experiment 3: number of chunks given to the model, k=4 vs k=8 (dev, 10 answerable questions)
+
+- Automatic checks, k=4 -> k=8: cited any article 10/10 -> 7/10; cited a gold article 8/10 -> 6/10;
+  refused although answerable 0/10 -> 1/10; key facts (rough) 0.54 -> 0.61;
+  median time 12 s -> 23 s (max 20 s -> 65 s).
+- Prompt length checked with Ollama's token count: about 2200-2300 tokens for k=8, well under the
+  4096 window. So the loss of citations is NOT explained by a truncated prompt.
+- My judgement; better: q01, q02, q03, q08; same: q07, q12, q09 (content; citation lost); worse: q05 (refuses
+  although Art. 26 was retrieved); identical answers: q04, q06, q10, q11.
+- Decision (rule fixed beforehand: adopt only if at least 2 questions improve AND none gets worse,
+  and median time at most doubles): q05 gets worse, so k=4 stays the main configuration.
+  k=8 will be reported as a secondary configuration on the test split.
+- Reading: more context gives more complete answers, but the 3B model more often drops the
+  citation format or refuses. Hypothesis, not tested: the instructions weigh less in a longer prompt.

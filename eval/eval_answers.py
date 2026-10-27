@@ -85,7 +85,7 @@ print(f"seconds per question: median {statistics.median(r['seconds'] for r in re
       f"max {max(r['seconds'] for r in records):.0f}")
 
 Path("eval/results").mkdir(exist_ok=True)
-tag = f"{args.split}_{args.prefix}_{Path(args.index_dir).name}"
+tag = f"{args.split}_{args.prefix}_{Path(args.index_dir).name}_k{args.k}"
 with open(f"eval/results/answers_{tag}.jsonl", "w", encoding="utf-8") as f:
     for r in records:
         f.write(json.dumps(r, ensure_ascii=False) + "\n")
